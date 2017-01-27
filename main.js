@@ -23,10 +23,10 @@ var sum = prices.reduce(function(subtotal, price){
 //the next function takes the sum and divides it by the number of prices
 
 var average = function(x, y){
-  return x / y
+  return Math.round(x / y * 100) /100;
 };
 
-console.log("Answer #1   " + average(sum, prices.length));
+console.log("Answer #1   " + "The average price is $" + average(sum, prices.length));
 
 //--------------QUESTION NUMBER 2-------------------
 //-------Show me how to get an array of items that---
@@ -35,7 +35,7 @@ console.log("Answer #1   " + average(sum, prices.length));
 var filteredItems = items.filter(function(item) {
   return item.price > 14.00 && item.price < 18.00;
 });
-console.log("Answer #2   " +filteredItems);
+console.log(filteredItems);
 
 //---------------QUESTION NUMBER 3----------------
 //Show me how find the item with a "GBP" currency code and print its
@@ -48,9 +48,9 @@ var currency = items.filter(function(curr){
 // console.log(currency);
 
 var conversion = currency.map(function(con){
-  return con.title + " " + "\u20ac" + con.price;
+  return con.title + " costs " + "\u20ac" + con.price;
 });
-console.log("Answer #3   " +conversion.join());
+console.log("Answer #3   " + conversion.join());
 
 
 
@@ -103,4 +103,4 @@ listNumOfMat.forEach(function(item) {
 var madeBy =items.filter(function(item){
   return item.who_made == "i_did";
 });
-console.log("Answer #6   " +madeBy.length);
+console.log("Answer #6   " +madeBy.length + " were made by their sellers");
